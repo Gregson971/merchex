@@ -6,6 +6,10 @@ from listings.models import Band, Listing
 from listings.forms import ContactUsForm, BandForm, ListingForm
 
 
+def home(request):
+    return redirect('band-list')
+
+
 def band_list(request):
     bands = Band.objects.all()
     return render(request, 'listings/band_list.html', context={'bands': bands})
