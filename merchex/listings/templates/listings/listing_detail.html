@@ -17,5 +17,7 @@
         <li>Description : {{ listing.description }}</li>
     </ul>
 
+    <a href="{% url 'listing-update' listing.id %}">Modifier cette annonce</a>
+
     <a href="{% url 'listing-list' %}">Retour à la liste</a>
 {% endblock content %}
