@@ -1,8 +1,0 @@
-{% extends "listings/base.html" %}
-{% block content %}
-  <h1>Listings</h1>
-  <p>These are our listings.</p>
-  <ul>
-    {% for listing in listings %}<li>{{ listing.title }}</li>{% endfor %}
-  </ul>
-{% endblock content %}

@@ -20,8 +20,11 @@ from listings import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("hello/", views.hello),
-    path("about-us/", views.about),
-    path("listings/", views.listings),
-    path("contact-us/", views.contact),
+    path("about-us/", views.about, name="about"),
+    path("bands/", views.band_list, name="band-list"),
+    path("bands/<int:band_id>/", views.band_detail, name="band-detail"),
+    path("listings/", views.listing_list, name="listing-list"),
+    path("listings/<int:listing_id>/", views.listing_detail, name="listing-detail"),
+    path("contact-us/", views.contact, name="contact"),
+    path("confirmation/", views.contact_confirmation, name="email-sent"),
 ]
