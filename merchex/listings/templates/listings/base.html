@@ -11,34 +11,37 @@
     </head>
 
     <body>
-        <header>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="{% url 'band-list' %}">Groupes</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'listing-list' %}">Annonces</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'contact' %}">Contact</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'about' %}">À propos</a>
-                    </li>
+        <div class="wrapper">
+            <header class="header">
+                <div class="header__logo">LOGO Merchex</div>
+                <nav class="header__menu">
+                    <ul class="nav_bar">
+                        <li class="nav_bar__item">
+                            <a href="{% url 'band-list' %}">Groupes</a>
+                        </li>
+                        <li class="nav_bar__item">
+                            <a href="{% url 'listing-list' %}">Annonces</a>
+                        </li>
+                        <li class="nav_bar__item">
+                            <a href="{% url 'contact' %}">Contact</a>
+                        </li>
+                        <li class="nav_bar__item">
+                            <a href="{% url 'about' %}">À propos</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
                 </ul>
-            </nav>
-        </header>
+            {% endif %}
 
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                    <li {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-
-        {% block content %}
-        {% endblock content %}
+            {% block content %}
+            {% endblock content %}
+        </div>
     </body>
 </html>
